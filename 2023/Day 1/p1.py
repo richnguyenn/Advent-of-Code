@@ -6,16 +6,22 @@ def calibrationVal(s: str) -> int:
     if len(nums) == 0:
         return 0
     elif len(nums) == 1:
-        return nums[0]
+        return int(nums[0] * 2)
     else:
         val = nums[0] + nums[-1]
         return int(val)
-    
-def solution(s: str):
-    txt = s.split(' ')
-    #for data in txt:
-        
 
-file = open('input.txt', 'r')
-lines = file.readlines()
-# solution("rwoapropw xD")
+def solution(txtInput):
+    total = 0
+    for line in txtInput:
+        total += calibrationVal(line)
+    return total
+
+with open('input.txt', 'r') as file:
+    lines = [line.strip() for line in file.readlines()]
+
+text = "1abc2 pqr3stu8vwx a1b2c3d4e5f treb7uchet"
+test = text.split(' ')
+# print(solution(test))
+
+print(solution(lines))
